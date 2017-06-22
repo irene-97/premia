@@ -1,0 +1,240 @@
+.section-gallery {
+    .container {
+        padding-right: 14px;
+    }
+
+    h2 {
+        margin-bottom: 22px;
+    }
+
+    .main-gallery-list {
+        position: relative;
+        width: 100%;
+        height: 600px;
+        margin: 0 auto 16px;
+
+        @each $breakpoint in (lg, md, sm) {
+            @include screen-down($breakpoint) {
+                height: container-inner-width($breakpoint) / $section-gallery_main-gallery-ratio;
+            }
+        }
+    }
+
+    .main-gallery {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateZ(0);
+        transition: opacity 0.2s ease;
+
+        .slider {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-size: 0;
+            white-space: nowrap;
+
+            .slide {
+                $slide-width: container-inner-width(xl, $padding-right: 14px);
+                position: relative;
+                display: inline-block;
+                width: $slide-width;
+                height: $slide-width / $section-gallery_main-gallery-ratio;
+                outline: none;
+                border-bottom: none;
+                vertical-align: top;
+
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: 50% 50%;
+                }
+
+                @each $breakpoint in (lg, md, sm) {
+                    @include screen-down($breakpoint) {
+                        width: container-inner-width($breakpoint);
+                        height: container-inner-width($breakpoint) / $section-gallery_main-gallery-ratio;
+                    }
+                }
+            }
+
+            .slick-list {
+                position: relative;
+                z-index: 1;
+            }
+
+            .slick-arrow {
+                position: absolute;
+                top: 50%;
+                z-index: 2;
+                display: block;
+                width: 34px;
+                height: 34px;
+                margin-top: -17px;
+                padding: 0;
+                outline: none;
+                border: none;
+                border-radius: 50%;
+                font-size: 0;
+                background: rgba(#000, 0.6);
+                cursor: pointer;
+
+                &.slick-prev {
+                    left: 21px;
+
+                    &:before {
+                        @include icon('prev', 'y');
+                        left: 7px;
+                    }
+                }
+
+                &.slick-next {
+                    right: 21px;
+
+                    &:before {
+                        @include icon('next', 'y');
+                        right: 7px;
+                    }
+                }
+            }
+        }
+
+        .title {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: 2;
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            background-color: rgba(#000, 0.5);
+
+            span {
+                display: table-cell;
+                height: 62px;
+                padding: 10px 30px;
+                font-size: 19.87px;
+                line-height: 22px;
+                vertical-align: middle;
+                color: #fff;
+            }
+        }
+
+        &.active {
+            z-index: 2;
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+
+    .gallery-list {
+        @include clearfix;
+        margin-right: -5px;
+
+        .gallery {
+            $gallery-width: 391px;
+            position: relative;
+            float: left;
+            display: block;
+            width: $gallery-width;
+            height: $gallery-width / $section-gallery_gallery-ratio;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            padding: 0;
+            border: 0;
+            background: #282828;
+            cursor: pointer;
+
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                transition: opacity 0.3s ease;
+            }
+
+            .title {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                z-index: 2;
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+                background-color: rgba(#000, 0.5);
+
+                span {
+                    display: table-cell;
+                    height: 60px;
+                    padding: 10px 30px;
+                    font-size: 16px;
+                    line-height: 19px;
+                    text-align: center;
+                    vertical-align: middle;
+                    color: #fff;
+                }
+            }
+
+            &:hover {
+                img {
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}
+
+@include screen-down(lg) {
+    .section-gallery {
+        .container {
+            padding-right: $container-padding-x;
+        }
+
+        .gallery-list {
+            .gallery {
+                $gallery-width: 308px;
+                width: $gallery-width;
+                height: $gallery-width / $section-gallery_gallery-ratio;
+            }
+        }
+    }
+}
+
+@include screen-down(md) {
+    .section-gallery {
+        .gallery-list {
+            .gallery {
+                $gallery-width: 364px;
+                width: $gallery-width;
+                height: $gallery-width / $section-gallery_gallery-ratio;
+            }
+        }
+    }
+}
+
+@include screen-down(sm) {
+    .section-gallery {
+        .gallery-list {
+            .gallery {
+                $gallery-width: 284px;
+                width: $gallery-width;
+                height: $gallery-width / $section-gallery_gallery-ratio;
+
+                .title {
+                    span {
+                        font-size: 13px;
+                        line-height: 16px;
+                    }
+                }
+            }
+        }
+    }
+}

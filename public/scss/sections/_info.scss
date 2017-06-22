@@ -1,0 +1,66 @@
+.section-info {
+    .container {
+        padding-top: 42px;
+        padding-right: 0;
+        padding-bottom: 22px;
+    }
+
+    .about-award,
+    .who-can-participate,
+    .how-to-become {
+        float: left;
+        width: 385px;
+    }
+
+    .who-can-participate {
+        margin-left: 25px;
+    }
+
+    .how-to-become {
+        width: 365px;
+        margin-left: 36px;
+    }
+}
+
+@include screen-down(lg) {
+    .section-info {
+        .container {
+            padding-right: $container-padding-x;
+        }
+
+        .about-award,
+        .who-can-participate,
+        .how-to-become {
+            width: 296px;
+        }
+
+        .who-can-participate,
+        .how-to-become {
+            margin-left: 23px;
+        }
+    }
+}
+
+@include screen-down(md) {
+    .section-info {
+        .container {
+            padding-right: $container-padding-x;
+        }
+
+        .about-award,
+        .who-can-participate,
+        .how-to-become {
+            width: 100%;
+        }
+
+        .about-award,
+        .who-can-participate {
+            margin-bottom: 25px;
+        }
+
+        .who-can-participate,
+        .how-to-become {
+            margin-left: 0;
+        }
+    }
+}

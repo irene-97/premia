@@ -1,0 +1,134 @@
+.section-council {
+    > .container {
+        padding-bottom: 35px;
+    }
+
+    h2 {
+    }
+
+    h3 {
+        font-size: 20px;
+        text-transform: none;
+    }
+
+    p {
+        font-size: 19.87px;
+        line-height: 22px;
+    }
+
+    ul {
+        font-size: 19.87px;
+        line-height: 22px;
+    }
+
+    .publication {
+        margin-bottom: 40px;
+        min-height: 382px;
+
+        .container {
+            min-height: 320px;
+            padding: 60px 27px 60px 37px;
+        }
+
+        .photo {
+            float: left;
+            display: block;
+            width: 180px;
+            height: 180px;
+            margin-top: 30px;
+            margin-left: 18px;
+
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+            }
+        }
+
+        .content {
+            float: left;
+            width: 946px;
+            margin-left: 22px;
+
+            .title {
+                margin: 0;
+                font-size: 19.87px;
+                line-height: 22px;
+                text-transform: none;
+                color: #d7203e;
+            }
+
+            .subtitle {
+                margin-top: 0;
+                margin-bottom: 0;
+                font-size: 19.87px;
+                line-height: 22px;
+                color: #000;
+            }
+
+            .quote {
+                position: relative;
+                margin-top: 44px;
+                font-size: 19.87px;
+                line-height: 22px;
+                text-align: justify;
+                text-indent: 35px;
+                color: #000;
+
+                &:before {
+                    @include icon("quote-middle");
+                    position: absolute;
+                    top: -12px;
+                    left: 0;
+                }
+            }
+        }
+
+        &:nth-child(even) {
+            background-color: #fee8d8;
+        }
+
+        &:nth-child(odd) {
+            background-color: rgba(#fee8d8, 0.55);
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@include screen-down(lg) {
+    .section-council {
+        .publication {
+            .content {
+                width: 716px;
+            }
+        }
+    }
+}
+
+@include screen-down(md) {
+    .section-council {
+        .publication {
+            .content {
+                width: 516px;
+            }
+
+            .photo {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+@include screen-down(sm) {
+    .section-council {
+        .publication {
+            .content {
+                width: 374px;
+            }
+        }
+    }
+}

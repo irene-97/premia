@@ -1,0 +1,317 @@
+.section-footer {
+    border-top: solid 3px #fee8d8;
+
+    .container {
+        padding-top: 93px;
+        padding-right: 15px;
+        padding-left: 15px;
+
+        @each $breakpoint, $footer-min-height in $footer-min-heights {
+            @include screen-up($breakpoint) {
+                min-height: $footer-min-height - 3px;
+            }
+        }
+    }
+
+    .constitutor {
+        float: left;
+        width: 150px;
+        margin-right: 86px;
+        margin-left: 20px;
+
+        .title {
+            font-size: 19.98px;
+            line-height: 18.09px;
+        }
+
+        .image {
+            display: inline-block;
+            margin-top: 19px;
+            border-bottom: none;
+
+            img {
+                display: block;
+            }
+        }
+    }
+
+    .involving {
+        float: left;
+        width: 150px;
+        margin-right: 88px;
+
+        .title {
+            font-size: 19.98px;
+            line-height: 18.09px;
+        }
+
+        .image {
+            display: inline-block;
+            margin-top: 19px;
+            margin-left: -100px;
+            border-bottom: none;
+
+            img {
+                display: block;
+            }
+        }
+    }
+
+    .copyright {
+        float: left;
+        width: 450px;
+        margin-right: 40px;
+
+        .title {
+            margin-bottom: 24px;
+            font-size: 18.09px;
+            line-height: 1;
+        }
+
+        .text {
+            @include clearfix;
+            margin-bottom: 24px;
+            font-size: 13.32px;
+            line-height: 14px;
+        }
+
+        img {
+            float: left;
+            margin-right: 6px;
+        }
+
+        a {
+            border-bottom: none;
+            color: #000;
+
+            &:hover,
+            &:focus {
+                border-bottom: dashed 1px #ff0000;
+            }
+        }
+    }
+
+    .link {
+        @include clearfix;
+        float: left;
+        margin-top: 11px;
+
+        .socials {
+            font-size: 0;
+            margin-bottom: 11px;
+
+            a {
+                display: inline-block;
+
+                border-bottom: none;
+            }
+
+            .facebook {
+                @include icon('facebook-dark');
+                margin-right: 1px;
+            }
+
+            .vk {
+                @include icon('vk-dark');
+                margin-right: 1px;
+            }
+
+            .twitter {
+                @include icon('twitter-dark');
+                margin-right: 2px;
+            }
+
+            .odnoklassniki {
+                @include icon('odnoklassniki-dark');
+                margin-right: 2px;
+            }
+
+            .google {
+                @include icon('google-dark');
+                margin-right: 2px;
+            }
+
+            .live-journal {
+                @include icon('live-journal-dark');
+                margin-right: 2px;
+            }
+        }
+
+        .button {
+            float: left;
+            display: block;
+            width: 158px;
+            padding-right: 0;
+            padding-left: 0;
+            font-size: 18.59px;
+        }
+    }
+}
+
+@include screen-down(lg) {
+    .section-footer {
+        .container {
+            padding-top: 50px;
+        }
+
+        .constitutor {
+            margin-right: 86px;
+            margin-left: 53px;
+            text-align: center;
+        }
+
+        .involving {
+            margin-right: 74px;
+            text-align: center;
+
+            .image {
+                margin-left: -77px;
+            }
+        }
+
+        .copyright {
+            margin-right: 0;
+
+            .title {
+                font-size: 19.98px;
+                line-height: 1;
+                text-align: center;
+            }
+
+            .text-wrapper {
+                position: absolute;
+                top: 195px;
+                left: 0;
+                width: 100%;
+
+                .text {
+                    display: block;
+                    margin-right: 0;
+                    margin-bottom: 10px;
+                    text-align: center;
+
+                    img {
+                        float: none;
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
+
+        .link {
+            margin-top: 0;
+            margin-left: 118px;
+
+            .button {
+                float: none;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+@include screen-down(md) {
+    .section-footer {
+
+        .constitutor {
+            width: 135px;
+            margin-right: 120px;
+            margin-left: 0;
+
+            .title {
+                font-size: 14.98px;
+            }
+
+            .image {
+                img {
+                    width: 100px;
+                }
+            }
+        }
+
+        .involving {
+            margin-right: 120px;
+
+            .title {
+                font-size: 14.98px;
+            }
+
+            .image {
+                img {
+                    width: 245px;
+                }
+            }
+        }
+
+        .copyright {
+            width: 222px;
+
+            .title {
+                font-size: 14.98px;
+            }
+        }
+
+        .link {
+            margin-top: -6px;
+            margin-left: 0;
+            .title {
+                font-size: 14.98px;
+            }
+
+            .button {
+            }
+        }
+    }
+}
+
+@include screen-down(sm) {
+    .section-footer {
+
+        .constitutor {
+            margin-right: 54px;
+
+            .title {
+                font-size: 12.98px;
+            }
+
+            .image {
+                img {
+                    width: 80px;
+                }
+            }
+        }
+
+        .involving {
+            margin-right: 40px;
+
+            .title {
+                font-size: 12.98px;
+            }
+
+            .image {
+                img {
+                    width: 215px;
+                }
+            }
+        }
+
+        .copyright {
+
+            .title {
+                font-size: 12.98px;
+            }
+
+            .text-wrapper {
+
+                .text {
+                    font-size: 12px;
+
+                    img {
+                        width: 15px;
+                        height: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

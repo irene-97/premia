@@ -1,0 +1,12 @@
+.container {
+    @include clearfix;
+    position: relative;
+    margin: 0 auto;
+    padding: 0 $container-padding-x;
+
+    @each $breakpoint, $container-max-width in $container-max-widths {
+        @include screen-up($breakpoint) {
+            max-width: $container-max-width;
+        }
+    }
+}

@@ -1,0 +1,49 @@
+@function default($value, $default) {
+    @return if($value != null, $value, $default);
+}
+
+@function line-height-px($font-size, $line-height) {
+    $font-size: nth($font-size, 1);
+    $line-height: nth($line-height, 1);
+    $unit: unit($line-height);
+
+    @if $unit == "px" {
+        @return $line-height;
+    } @else if $unit == "" {
+        @return $font-size * $line-height;
+    } @else if $unit == "em" {
+        @return $font-size * ($line-height / 1em);
+    } @else if $unit == "%" {
+        @return $font-size * ($line-height / 100%);
+    } @else {
+        @error "Unexpected line-height unit: #{$unit}";
+    }
+}
+
+@function breakpoint-next($name) {
+    $breakpoint-names: map-keys($grid-breakpoints);
+    $n: index($breakpoint-names, $name);
+    @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+@function breakpoint-min($name) {
+    $min: map-get($grid-breakpoints, $name);
+    @return if($min != 0, $min, null);
+}
+
+@function breakpoint-max($name) {
+    $next: breakpoint-next($name);
+    @return if($next, breakpoint-min($next) - 1px, null);
+}
+
+@function container-max-width($breakpoint) {
+    @return map-get($container-max-widths, $breakpoint);
+}
+
+@function container-inner-width($breakpoint, $padding-right: $container-padding-x, $padding-left: $container-padding-x) {
+    @return container-max-width($breakpoint) - $padding-right - $padding-left;
+}
+
+@function tab-button-width($container-inner-width, $count, $overlay-width) {
+    @return ($container-inner-width + $overlay-width * ($count - 1)) / $count;
+}

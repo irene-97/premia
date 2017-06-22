@@ -1,0 +1,31 @@
+$fancybox-image-url: '../vendor/fancybox/img';
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 670px,
+    md: 840px,
+    lg: 1050px,
+    xl: 1290px
+);
+
+$container-max-widths: (
+    sm: 640px,
+    md: 800px,
+    lg: 1000px,
+    xl: 1230px
+);
+
+$container-padding-x: 33px;
+
+$footer-min-heights: (
+    xs: 278px,
+    sm: 278px,
+    md: 278px,
+    lg: 278px,
+    xl: 304px
+);
+
+$site-min-width: 640px;
+
+$section-gallery_main-gallery-ratio: 1183 / 600;
+$section-gallery_gallery-ratio: 391 / 270;

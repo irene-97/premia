@@ -1,0 +1,31 @@
+.modal-delete {
+    .modal_outer {
+        width: 447px;
+        height: 332px;
+    }
+
+    .question {
+        font-family: "PT Sans", sans-serif;
+        padding-top: 22px;
+        text-align: center;
+    }
+
+    .buttons {
+        font-size: 0;
+        margin-top: 42px;
+        text-align: center;
+
+        .yes {
+            width: 70px;
+            margin-right: 30px;
+            padding-right: 0;
+            padding-left: 0;
+        }
+
+        .no {
+            width: 70px;
+            padding-right: 0;
+            padding-left: 0;
+        }
+    }
+}

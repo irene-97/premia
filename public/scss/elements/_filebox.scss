@@ -1,0 +1,91 @@
+.filebox {
+    margin-top: 29px;
+    margin-bottom: 33px;
+
+    .files {
+        @include clearfix;
+
+        .file {
+            position: relative;
+            clear: left;
+            float: left;
+            min-width: 389px;
+            max-width: 100%;
+            min-height: 43px;
+            margin-bottom: 19px;
+            padding: 11px 40px 10px 52px;
+            font-size: 16px;
+            line-height: 22px;
+            color: #000;
+
+            &:before {
+                @include icon('clip');
+                position: absolute;
+                left: 2px;
+                top: 0;
+            }
+
+            a {
+                border-bottom: none;
+                color: #000;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            .button.remove {
+                position: absolute;
+                right: 0;
+                top: 10px;
+                width: 25px;
+                padding: 0;
+                border-radius: 50%;
+
+                &:before {
+                    @include icon('x', 'both');
+                    opacity: 0.8;
+                }
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .filebox_label {
+        position: relative;
+        display: inline-block;
+        margin-top: 25px;
+        overflow: hidden;
+        font-size: 16px;
+        line-height: 22px;
+        color: #e30613;
+        cursor: pointer;
+
+        input {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+    }
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &.empty {
+        .filebox_label {
+            margin-top: 0;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+.section-about {
+    h2 {
+    }
+
+    h3 {
+        text-transform: none;
+    }
+
+    .list-item {
+        .number {
+            float: left;
+            padding-right: 4px;
+        }
+
+        .text {
+            margin-left: 42px;
+        }
+    }
+}

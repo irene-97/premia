@@ -1,0 +1,25 @@
+.modal-mark-saved {
+    .modal_outer {
+        width: 260px;
+        height: 180px;
+    }
+
+    .modal_content {
+        width: 260px;
+
+    }
+
+    .text {
+        position: relative;
+        padding-top: 50px;
+        font-family: "PT Sans", sans-serif;
+        font-size: 20px;
+        line-height: 22px;
+        text-align: center;
+
+        &:before {
+            @include icon('checkmark-big', 'x');
+            top: 0;
+        }
+    }
+}

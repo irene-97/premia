@@ -1,0 +1,60 @@
+.section-publications {
+    .breadcrumbs {
+        margin-bottom: 21px;
+    }
+
+    .publication {
+        margin-bottom: 40px;
+
+        .container {
+            min-height: 320px;
+            padding: 53px 70px 60px 33px;
+        }
+
+        .title {
+            font-size: 19.87px;
+            line-height: 22px;
+            color: #d7203e;
+        }
+
+        .subtitle {
+            font-size: 19.87px;
+            line-height: 22px;
+        }
+
+        .quote {
+            position: relative;
+            margin-top: 44px;
+            font-size: 19.87px;
+            line-height: 22px;
+            text-align: justify;
+            text-indent: 35px;
+            color: #000;
+
+            &:before {
+                @include icon("quote-middle");
+                position: absolute;
+                top: -5px;
+                left: -3px;
+            }
+        }
+
+        .more {
+            position: absolute;
+            right: 69px;
+            bottom: 21px;
+            width: 151px;
+            padding-right: 0;
+            padding-left: 0;
+            font-size: 19.87px;
+        }
+
+        &:nth-child(even) {
+            background-color: #fee8d8;
+        }
+
+        &:nth-child(odd) {
+            background-color: rgba(#fee8d8, 0.55);
+        }
+    }
+}

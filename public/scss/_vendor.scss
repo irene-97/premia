@@ -1,0 +1,27 @@
+@import "../../node_modules/fancybox/dist/scss/jquery.fancybox";
+@import "../../node_modules/slick-carousel/slick/slick.scss";
+
+.fancybox-skin {
+    border-radius: 10px;
+    color: #000;
+    background: #fff;
+}
+
+.fancybox-error {
+    font-family: "LucidaGrande", sans-serif;
+    color: #000;
+}
+
+.fancybox-close {
+    right: 0;
+    top: 0;
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+    background: #fff !important;
+
+    &:before {
+        @include icon('close', 'both');
+    }
+}

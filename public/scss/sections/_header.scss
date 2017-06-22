@@ -1,0 +1,385 @@
+.section-header {
+    background: #fff;
+    z-index: 10;
+
+    .container {
+        min-height: 151px;
+        padding: 29px 15px 20px;
+    }
+
+    .logo {
+        float: left;
+        width: 211px;
+        margin-left: 7px;
+        border-bottom: none;
+
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    .menu-wrapper {
+        position: relative;
+        z-index: 10;
+        float: left;
+        width: 780px;
+        margin: 46px 0 0 16px;
+
+        .toggle {
+            position: relative;
+            display: none;
+            width: 77px;
+            height: 62px;
+            margin-left: 5px;
+            padding: 0;
+            outline: none;
+            border: none;
+            background: none;
+            cursor: pointer;
+
+            &:before {
+                @include icon('hamburger', 'both');
+            }
+        }
+
+        .menu {
+            @include clearfix;
+            margin: 0;
+
+            > .item {
+                position: relative;
+                float: left;
+                margin-right: 19px;
+                padding: 0;
+                overflow: visible;
+
+                &:before {
+                    display: none;
+                }
+
+                > a {
+                    position: relative;
+                    display: block;
+                    border-bottom: none;
+                    padding: 10px 0;
+                    font-size: 20px;
+                    line-height: 23px;
+                    text-transform: uppercase;
+                    vertical-align: top;
+                    white-space: nowrap;
+                    color: #000;
+
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        display: none;
+                        width: 100%;
+                        height: 3px;
+                        left: 0;
+                        bottom: 0;
+                        background: linear-gradient(to right, #f5a54d, #e6282a);
+                    }
+
+                    &:hover {
+                        &:after {
+                            display: block;
+                        }
+                    }
+                }
+
+                .submenu {
+                    position: absolute;
+                    left: 0;
+                    top: 43px;
+                    display: none;
+                    min-width: 100%;
+                    margin: 0;
+                    padding-top: 39px;
+                    padding-bottom: 15px;
+                    box-shadow: 0 4px 4px 0 rgba(#000, 0.1);
+                    background: #fff;
+
+                    > .item {
+                        margin-bottom: 6px;
+                        padding: 0;
+                        overflow: visible;
+
+                        &:before {
+                            display: none;
+                        }
+
+                        > a {
+                            display: block;
+                            padding: 0 15px;
+                            border-bottom: none;
+                            font-size: 16.67px;
+                            line-height: 22px;
+                            white-space: nowrap;
+                            color: #000;
+
+                            &:hover {
+                                text-decoration: none;
+                                color: #e62027;
+                            }
+                        }
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+
+                &:hover {
+                    .submenu {
+                        display: block;
+                    }
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    .facebook {
+        @include icon("facebook");
+        float: left;
+        margin-top: 52px;
+        margin-left: 4px;
+        border: none;
+    }
+
+    .buttons {
+        float: left;
+        width: 141px;
+        margin-top: 33px;
+        margin-left: 12px;
+
+        .register,
+        .login {
+            display: block;
+            width: 100%;
+            padding-right: 0;
+            padding-left: 0;
+            font-family: "PT Sans", sans-serif;
+            font-size: 16.56px;
+        }
+
+        .register {
+            margin-bottom: 9px;
+        }
+    }
+
+    .account {
+        float: right;
+        min-width: 131px;
+        max-width: 145px;
+        margin-left: 5px;
+        font-family: "PT Sans", sans-serif;
+        font-size: 16px;
+        color: #000;
+
+        .title {
+            font-weight: bold;
+        }
+
+        .text {
+        }
+
+        .username {
+            margin-bottom: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: #ff6000;
+        }
+
+        .button {
+            font-size: 15.91px;
+            border-color: #ff6000;
+            box-shadow: none;
+            color: #000;
+            background: #ff6000;
+        }
+    }
+}
+
+@include screen-down(lg) {
+    .section-header {
+        .container {
+            min-height: 121px;
+            padding-top: 20px;
+        }
+
+        .logo {
+            width: 160px;
+            margin-top: 2px;
+        }
+
+        .menu-wrapper {
+            width: 601px;
+            margin-top: 27px;
+
+            .menu {
+                > .item {
+                    margin-right: 10px;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+
+                    > a {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        .facebook {
+            margin-top: 34px;
+        }
+
+        .buttons {
+            margin-top: 12px;
+        }
+    }
+}
+
+@include screen-down(md) {
+    .section-header {
+        .container {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        .logo {
+            width: 250px;
+            margin-top: 0;
+            margin-left: 200px;
+        }
+
+        .menu-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: auto;
+            margin: 0;
+            padding: 39px 0 36px;
+            border: solid 1px transparent;
+            transition: background-color 0.2s ease;
+
+            .toggle {
+                display: block;
+
+                &:last-child {
+                    display: none;
+                }
+            }
+
+            .menu {
+                width: 0;
+                height: 0;
+                overflow: hidden;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.2s ease;
+
+                > .item {
+                    float: none;
+                    margin-right: 0;
+
+                    > a {
+                        display: inline-block;
+                        padding-top: 17px;
+                        padding-bottom: 17px;
+                        font-size: 28px;
+                        line-height: 30px;
+                        text-transform: none;
+                        white-space: normal;
+                        color: #e62027;
+
+                        &:after {
+                            display: block;
+                            height: 5px;
+                        }
+                    }
+
+                    .submenu {
+                        position: relative;
+                        left: auto;
+                        top: auto;
+                        display: block;
+                        margin-top: 24px;
+                        padding-top: 0;
+                        padding-bottom: 0;
+                        box-shadow: none;
+                        background: none;
+
+                        > .item {
+                            margin-bottom: 18px;
+
+                            > a {
+                                padding-right: 0;
+                                padding-left: 0;
+                                font-size: 24px;
+                                line-height: 29px;
+                                white-space: normal;
+                            }
+
+                            &:last-child {
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.open {
+                width: 490px;
+                padding-bottom: 39px;
+                border-color: #fc5c03;
+                background-color: rgba(#fff, 0.95);
+
+                .toggle {
+                    &:last-child {
+                        display: block;
+                    }
+                }
+
+                .menu {
+                    width: auto;
+                    height: auto;
+                    margin-top: 13px;
+                    margin-bottom: 39px;
+                    padding: 0 28px;
+                    overflow: visible;
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+
+        .facebook {
+            margin-top: 41px;
+            margin-left: 116px;
+        }
+
+        .buttons {
+            margin-top: 20px;
+            margin-left: 22px;
+        }
+    }
+}
+
+@include screen-down(sm) {
+    .section-header {
+        .logo {
+            margin-left: 120px;
+        }
+
+        .facebook {
+            margin-left: 40px;
+        }
+    }
+}

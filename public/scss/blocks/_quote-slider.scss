@@ -1,0 +1,198 @@
+.block-quote-slider {
+    min-height: 301px;
+    padding-top: 68px;
+    padding-bottom: 50px;
+    overflow: hidden;
+    font-size: 0;
+    white-space: nowrap;
+    background-color: #fee8d8;
+
+    .slide {
+        display: inline-block;
+        outline: none;
+        vertical-align: top;
+        white-space: normal;
+
+        @each $breakpoint, $container-max-width in $container-max-widths {
+            @include screen-up($breakpoint) {
+                width: $container-max-width;
+            }
+        }
+
+        .photo {
+            float: left;
+            display: block;
+            width: 160px;
+            height: 160px;
+            margin-left: 122px;
+
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+            }
+        }
+
+        .content {
+            float: left;
+            width: 745px;
+            margin-left: 106px;
+            padding-top: 25px;
+
+            .quote {
+                position: relative;
+                font-style: italic;
+                font-size: 19.86px;
+                line-height: 24px;
+                color: #000;
+
+                &:before {
+                    @include icon("quote");
+                    position: absolute;
+                    top: -24px;
+                    left: -11px;
+                }
+            }
+
+            .author {
+                float: right;
+                margin-top: 40px;
+                margin-right: -52px;
+                font-size: 16.67px;
+                line-height: 22px;
+            }
+        }
+    }
+
+    .slick-list {
+        position: relative;
+        z-index: 1;
+    }
+
+    .slick-arrow {
+        position: absolute;
+        top: 78px;
+        z-index: 2;
+        padding: 0;
+        border: 0;
+        outline: none;
+        font-size: 0;
+        background: none;
+        cursor: pointer;
+
+        &.slick-prev {
+            @include icon('arrow-left');
+            left: 34px;
+        }
+
+        &.slick-next {
+            @include icon('arrow-right');
+            right: 34px;
+        }
+    }
+
+    .slick-dots {
+        position: absolute;
+        left: 50%;
+        bottom: 27px;
+        z-index: 3;
+        width: 300px;
+        margin: 0 0 0 -150px;
+        text-align: center;
+
+        li {
+            display: inline-block;
+            margin: 2px;
+            padding: 0;
+
+            &:before {
+                display: none;
+            }
+
+            button {
+                display: block;
+                width: 8px;
+                height: 8px;
+                padding: 0;
+                border: solid 1px #000;
+                border-radius: 50%;
+                outline: none;
+                font-size: 0;
+                background: #000;
+                cursor: pointer;
+            }
+
+            &.slick-active {
+                button {
+                    background: transparent;
+                }
+            }
+        }
+    }
+
+    &.small {
+        width: 360px;
+        padding-top: 112px;
+        padding-bottom: 139px;
+
+        .slide {
+            width: 360px;
+
+            .photo {
+                float: none;
+                width: 124px;
+                height: 124px;
+                margin: 0 auto;
+
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .content {
+                float: none;
+                width: 100%;
+                margin-left: 0;
+                padding-top: 0;
+
+                .quote {
+                    position: relative;
+                    margin-top: 32px;
+                    margin-left: 22px;
+                    margin-right: 10px;
+                    font-style: italic;
+                    font-size: 14px;
+                    line-height: 24px;
+                    color: #000;
+
+                    &:before {
+                        @include icon("quote-small");
+                        position: absolute;
+                        top: -11px;
+                        left: -13px;
+                    }
+                }
+
+                .author {
+                    float: none;
+                    margin-top: 5px;
+                    margin-right: 10px;
+                    margin-left: 22px;
+                    font-size: 14px;
+                    line-height: 24px;
+                }
+            }
+        }
+
+        .slick-arrow {
+            display: none !important;
+        }
+
+        .slick-dots {
+            bottom: 90px;
+        }
+    }
+}

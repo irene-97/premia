@@ -1,0 +1,8 @@
+.section,
+[class^="section-"],
+[class*=" section-"] {
+    @include clearfix;
+    position: relative;
+    z-index: 1;
+    min-width: $site-min-width;
+}

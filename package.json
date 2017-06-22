@@ -1,0 +1,34 @@
+{
+  "name": "premia.dev.beliarh.net",
+  "version": "1.0.0",
+  "author": "Irina Fomina <irene_97@inbox.ru>",
+  "license": "ISC",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-es2015-rollup": "^1.1.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-zip": "^3.2.0",
+    "gulp.spritesmith": "^6.2.1",
+    "merge-stream": "^1.0.0",
+    "rollup": "^0.34.1",
+    "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-commonjs": "^3.3.0",
+    "rollup-plugin-node-resolve": "^1.7.1"
+  },
+  "dependencies": {
+    "bootstrap": "github:twbs/bootstrap#v4-dev",
+    "component-modernizr": "github:components/modernizr",
+    "fancybox": "^3.0.0",
+    "jquery": "^3.1.0",
+    "jquery.inputmask": "^3.3.1",
+    "perfectly-aligned": "0.0.3",
+    "slick-carousel": "^1.6.0"
+  }
+}

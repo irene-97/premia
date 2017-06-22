@@ -1,0 +1,660 @@
+$icons: (
+    "arrow-left-small": (
+        width: 20px,
+        height: 40px,
+        src: "../images/icons.png",
+        offset: (
+            x: 0,
+            y: -121px,
+        ),
+    ),
+    "arrow-left": (
+        width: 28px,
+        height: 87px,
+        src: "../images/icons.png",
+        offset: (
+            x: -28px,
+            y: 0,
+        ),
+    ),
+    "arrow-right-breadcrumbs": (
+        width: 8px,
+        height: 14px,
+        src: "../images/icons.png",
+        offset: (
+            x: -122px,
+            y: -31px,
+        ),
+    ),
+    "arrow-right-small": (
+        width: 20px,
+        height: 40px,
+        src: "../images/icons.png",
+        offset: (
+            x: -56px,
+            y: -43px,
+        ),
+    ),
+    "arrow-right": (
+        width: 28px,
+        height: 87px,
+        src: "../images/icons.png",
+        offset: (
+            x: 0,
+            y: 0,
+        ),
+    ),
+    "checkmark-big": (
+        width: 44px,
+        height: 31px,
+        src: "../images/icons.png",
+        offset: (
+            x: -88px,
+            y: 0,
+        ),
+    ),
+    "checkmark": (
+        width: 20px,
+        height: 14px,
+        src: "../images/icons.png",
+        offset: (
+            x: -102px,
+            y: -104px,
+        ),
+    ),
+    "clip": (
+        width: 32px,
+        height: 43px,
+        src: "../images/icons.png",
+        offset: (
+            x: -56px,
+            y: 0,
+        ),
+    ),
+    "close": (
+        width: 15px,
+        height: 15px,
+        src: "../images/icons.png",
+        offset: (
+            x: -48px,
+            y: -121px,
+        ),
+    ),
+    "facebook-dark": (
+        width: 34px,
+        height: 34px,
+        src: "../images/icons.png",
+        offset: (
+            x: -68px,
+            y: -87px,
+        ),
+    ),
+    "facebook": (
+        width: 29px,
+        height: 28px,
+        src: "../images/icons.png",
+        offset: (
+            x: -132px,
+            y: -68px,
+        ),
+    ),
+    "google-dark": (
+        width: 34px,
+        height: 34px,
+        src: "../images/icons.png",
+        offset: (
+            x: -132px,
+            y: 0,
+        ),
+    ),
+    "hamburger": (
+        width: 33px,
+        height: 22px,
+        src: "../images/icons.png",
+        offset: (
+            x: -132px,
+            y: -96px,
+        ),
+    ),
+    "live-journal-dark": (
+        width: 34px,
+        height: 34px,
+        src: "../images/icons.png",
+        offset: (
+            x: -132px,
+            y: -34px,
+        ),
+    ),
+    "next": (
+        width: 14px,
+        height: 22px,
+        src: "../images/icons.png",
+        offset: (
+            x: -20px,
+            y: -121px,
+        ),
+    ),
+    "odnoklassniki-dark": (
+        width: 34px,
+        height: 34px,
+        src: "../images/icons.png",
+        offset: (
+            x: -34px,
+            y: -87px,
+        ),
+    ),
+    "prev": (
+        width: 14px,
+        height: 22px,
+        src: "../images/icons.png",
+        offset: (
+            x: -34px,
+            y: -121px,
+        ),
+    ),
+    "quote-middle": (
+        width: 22px,
+        height: 17px,
+        src: "../images/icons.png",
+        offset: (
+            x: -102px,
+            y: -87px,
+        ),
+    ),
+    "quote-small": (
+        width: 19px,
+        height: 14px,
+        src: "../images/icons.png",
+        offset: (
+            x: -113px,
+            y: -65px,
+        ),
+    ),
+    "quote": (
+        width: 25px,
+        height: 20px,
+        src: "../images/icons.png",
+        offset: (
+            x: -88px,
+            y: -65px,
+        ),
+    ),
+    "twitter-dark": (
+        width: 34px,
+        height: 34px,
+        src: "../images/icons.png",
+        offset: (
+            x: -88px,
+            y: -31px,
+        ),
+    ),
+    "vk-dark": (
+        width: 34px,
+        height: 34px,
+        src: "../images/icons.png",
+        offset: (
+            x: 0,
+            y: -87px,
+        ),
+    ),
+    "x": (
+        width: 9px,
+        height: 9px,
+        src: "../images/icons.png",
+        offset: (
+            x: -122px,
+            y: -45px,
+        ),
+    ),
+);
+
+@function icon-width($name) {
+    @return map-get(map-get($icons, $name), width);
+}
+
+@function icon-height($name) {
+    @return map-get(map-get($icons, $name), height);
+}
+
+@function icon-src($name) {
+    @return map-get(map-get($icons, $name), src);
+}
+
+@function icon-url($name) {
+    @return url(icon-src($name));
+}
+
+@function icon-offset-x($name) {
+    @return map-get(map-get(map-get($icons, $name), offset), x);
+}
+
+@function icon-offset-y($name) {
+    @return map-get(map-get(map-get($icons, $name), offset), y);
+}
+
+@function icon-offset($name) {
+    @return (icon-offset-x($name) icon-offset-y($name));
+}
+
+@mixin icon-width($name) {
+    width: icon-width($name);
+}
+
+@mixin icon-height($name) {
+    height: icon-height($name);
+}
+
+@mixin icon-size($name) {
+    @include icon-width($name);
+    @include icon-height($name);
+}
+
+@mixin icon-background-image($name) {
+    background-image: icon-url($name);
+}
+
+@mixin icon-background-position($name) {
+    background-position: icon-offset($name);
+}
+
+@mixin icon-background($name) {
+    background: icon-url($name) icon-offset($name) no-repeat;
+}
+
+@mixin icon-align-x($name) {
+    position: absolute;
+    left: 50%;
+    margin-left: (icon-width($name) / -2);
+}
+
+@mixin icon-align-y($name) {
+    position: absolute;
+    top: 50%;
+    margin-top: (icon-height($name) / -2);
+}
+
+@mixin icon-align-both($name) {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: (icon-width($name) / -2);
+    margin-top: (icon-height($name) / -2);
+}
+
+@mixin icon($name, $align: null) {
+    @if is-superselector(":before", &) or
+        is-superselector("::before", &) or
+        is-superselector(":after", &) or
+        is-superselector("::after", &) {
+        content: "";
+    }
+
+    display: inline-block;
+
+    @if $align == "x" {
+        @include icon-align-x($name);
+    } @else if $align == "y" {
+        @include icon-align-y($name);
+    } @else if $align == "both" {
+        @include icon-align-both($name);
+    }
+
+    @include icon-size($name);
+
+    vertical-align: middle;
+
+    @include icon-background($name);
+}
+
+.icon,
+[class^="icon-"],
+[class*=" icon-"] {
+}
+
+.icon {
+    &-arrow-left-small {
+        @include icon("arrow-left-small");
+
+        &.align-x {
+            @include icon-align-x("arrow-left-small");
+        }
+
+        &.align-y {
+            @include icon-align-y("arrow-left-small");
+        }
+
+        &.align-both {
+            @include icon-align-both("arrow-left-small");
+        }
+    }
+    &-arrow-left {
+        @include icon("arrow-left");
+
+        &.align-x {
+            @include icon-align-x("arrow-left");
+        }
+
+        &.align-y {
+            @include icon-align-y("arrow-left");
+        }
+
+        &.align-both {
+            @include icon-align-both("arrow-left");
+        }
+    }
+    &-arrow-right-breadcrumbs {
+        @include icon("arrow-right-breadcrumbs");
+
+        &.align-x {
+            @include icon-align-x("arrow-right-breadcrumbs");
+        }
+
+        &.align-y {
+            @include icon-align-y("arrow-right-breadcrumbs");
+        }
+
+        &.align-both {
+            @include icon-align-both("arrow-right-breadcrumbs");
+        }
+    }
+    &-arrow-right-small {
+        @include icon("arrow-right-small");
+
+        &.align-x {
+            @include icon-align-x("arrow-right-small");
+        }
+
+        &.align-y {
+            @include icon-align-y("arrow-right-small");
+        }
+
+        &.align-both {
+            @include icon-align-both("arrow-right-small");
+        }
+    }
+    &-arrow-right {
+        @include icon("arrow-right");
+
+        &.align-x {
+            @include icon-align-x("arrow-right");
+        }
+
+        &.align-y {
+            @include icon-align-y("arrow-right");
+        }
+
+        &.align-both {
+            @include icon-align-both("arrow-right");
+        }
+    }
+    &-checkmark-big {
+        @include icon("checkmark-big");
+
+        &.align-x {
+            @include icon-align-x("checkmark-big");
+        }
+
+        &.align-y {
+            @include icon-align-y("checkmark-big");
+        }
+
+        &.align-both {
+            @include icon-align-both("checkmark-big");
+        }
+    }
+    &-checkmark {
+        @include icon("checkmark");
+
+        &.align-x {
+            @include icon-align-x("checkmark");
+        }
+
+        &.align-y {
+            @include icon-align-y("checkmark");
+        }
+
+        &.align-both {
+            @include icon-align-both("checkmark");
+        }
+    }
+    &-clip {
+        @include icon("clip");
+
+        &.align-x {
+            @include icon-align-x("clip");
+        }
+
+        &.align-y {
+            @include icon-align-y("clip");
+        }
+
+        &.align-both {
+            @include icon-align-both("clip");
+        }
+    }
+    &-close {
+        @include icon("close");
+
+        &.align-x {
+            @include icon-align-x("close");
+        }
+
+        &.align-y {
+            @include icon-align-y("close");
+        }
+
+        &.align-both {
+            @include icon-align-both("close");
+        }
+    }
+    &-facebook-dark {
+        @include icon("facebook-dark");
+
+        &.align-x {
+            @include icon-align-x("facebook-dark");
+        }
+
+        &.align-y {
+            @include icon-align-y("facebook-dark");
+        }
+
+        &.align-both {
+            @include icon-align-both("facebook-dark");
+        }
+    }
+    &-facebook {
+        @include icon("facebook");
+
+        &.align-x {
+            @include icon-align-x("facebook");
+        }
+
+        &.align-y {
+            @include icon-align-y("facebook");
+        }
+
+        &.align-both {
+            @include icon-align-both("facebook");
+        }
+    }
+    &-google-dark {
+        @include icon("google-dark");
+
+        &.align-x {
+            @include icon-align-x("google-dark");
+        }
+
+        &.align-y {
+            @include icon-align-y("google-dark");
+        }
+
+        &.align-both {
+            @include icon-align-both("google-dark");
+        }
+    }
+    &-hamburger {
+        @include icon("hamburger");
+
+        &.align-x {
+            @include icon-align-x("hamburger");
+        }
+
+        &.align-y {
+            @include icon-align-y("hamburger");
+        }
+
+        &.align-both {
+            @include icon-align-both("hamburger");
+        }
+    }
+    &-live-journal-dark {
+        @include icon("live-journal-dark");
+
+        &.align-x {
+            @include icon-align-x("live-journal-dark");
+        }
+
+        &.align-y {
+            @include icon-align-y("live-journal-dark");
+        }
+
+        &.align-both {
+            @include icon-align-both("live-journal-dark");
+        }
+    }
+    &-next {
+        @include icon("next");
+
+        &.align-x {
+            @include icon-align-x("next");
+        }
+
+        &.align-y {
+            @include icon-align-y("next");
+        }
+
+        &.align-both {
+            @include icon-align-both("next");
+        }
+    }
+    &-odnoklassniki-dark {
+        @include icon("odnoklassniki-dark");
+
+        &.align-x {
+            @include icon-align-x("odnoklassniki-dark");
+        }
+
+        &.align-y {
+            @include icon-align-y("odnoklassniki-dark");
+        }
+
+        &.align-both {
+            @include icon-align-both("odnoklassniki-dark");
+        }
+    }
+    &-prev {
+        @include icon("prev");
+
+        &.align-x {
+            @include icon-align-x("prev");
+        }
+
+        &.align-y {
+            @include icon-align-y("prev");
+        }
+
+        &.align-both {
+            @include icon-align-both("prev");
+        }
+    }
+    &-quote-middle {
+        @include icon("quote-middle");
+
+        &.align-x {
+            @include icon-align-x("quote-middle");
+        }
+
+        &.align-y {
+            @include icon-align-y("quote-middle");
+        }
+
+        &.align-both {
+            @include icon-align-both("quote-middle");
+        }
+    }
+    &-quote-small {
+        @include icon("quote-small");
+
+        &.align-x {
+            @include icon-align-x("quote-small");
+        }
+
+        &.align-y {
+            @include icon-align-y("quote-small");
+        }
+
+        &.align-both {
+            @include icon-align-both("quote-small");
+        }
+    }
+    &-quote {
+        @include icon("quote");
+
+        &.align-x {
+            @include icon-align-x("quote");
+        }
+
+        &.align-y {
+            @include icon-align-y("quote");
+        }
+
+        &.align-both {
+            @include icon-align-both("quote");
+        }
+    }
+    &-twitter-dark {
+        @include icon("twitter-dark");
+
+        &.align-x {
+            @include icon-align-x("twitter-dark");
+        }
+
+        &.align-y {
+            @include icon-align-y("twitter-dark");
+        }
+
+        &.align-both {
+            @include icon-align-both("twitter-dark");
+        }
+    }
+    &-vk-dark {
+        @include icon("vk-dark");
+
+        &.align-x {
+            @include icon-align-x("vk-dark");
+        }
+
+        &.align-y {
+            @include icon-align-y("vk-dark");
+        }
+
+        &.align-both {
+            @include icon-align-both("vk-dark");
+        }
+    }
+    &-x {
+        @include icon("x");
+
+        &.align-x {
+            @include icon-align-x("x");
+        }
+
+        &.align-y {
+            @include icon-align-y("x");
+        }
+
+        &.align-both {
+            @include icon-align-both("x");
+        }
+    }
+}

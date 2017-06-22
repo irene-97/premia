@@ -1,0 +1,136 @@
+$icons: (
+{{#sprites}}
+    "{{name}}": (
+        width: {{px.width}},
+        height: {{px.height}},
+        src: "{{escaped_image}}",
+        offset: (
+            x: {{#if offset_x}}{{px.offset_x}}{{else}}{{offset_x}}{{/if}},
+            y: {{#if offset_y}}{{px.offset_y}}{{else}}{{offset_y}}{{/if}},
+        ),
+    ),
+{{/sprites}}
+);
+
+@function icon-width($name) {
+    @return map-get(map-get($icons, $name), width);
+}
+
+@function icon-height($name) {
+    @return map-get(map-get($icons, $name), height);
+}
+
+@function icon-src($name) {
+    @return map-get(map-get($icons, $name), src);
+}
+
+@function icon-url($name) {
+    @return url(icon-src($name));
+}
+
+@function icon-offset-x($name) {
+    @return map-get(map-get(map-get($icons, $name), offset), x);
+}
+
+@function icon-offset-y($name) {
+    @return map-get(map-get(map-get($icons, $name), offset), y);
+}
+
+@function icon-offset($name) {
+    @return (icon-offset-x($name) icon-offset-y($name));
+}
+
+@mixin icon-width($name) {
+    width: icon-width($name);
+}
+
+@mixin icon-height($name) {
+    height: icon-height($name);
+}
+
+@mixin icon-size($name) {
+    @include icon-width($name);
+    @include icon-height($name);
+}
+
+@mixin icon-background-image($name) {
+    background-image: icon-url($name);
+}
+
+@mixin icon-background-position($name) {
+    background-position: icon-offset($name);
+}
+
+@mixin icon-background($name) {
+    background: icon-url($name) icon-offset($name) no-repeat;
+}
+
+@mixin icon-align-x($name) {
+    position: absolute;
+    left: 50%;
+    margin-left: (icon-width($name) / -2);
+}
+
+@mixin icon-align-y($name) {
+    position: absolute;
+    top: 50%;
+    margin-top: (icon-height($name) / -2);
+}
+
+@mixin icon-align-both($name) {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: (icon-width($name) / -2);
+    margin-top: (icon-height($name) / -2);
+}
+
+@mixin icon($name, $align: null) {
+    @if is-superselector(":before", &) or
+        is-superselector("::before", &) or
+        is-superselector(":after", &) or
+        is-superselector("::after", &) {
+        content: "";
+    }
+
+    display: inline-block;
+
+    @if $align == "x" {
+        @include icon-align-x($name);
+    } @else if $align == "y" {
+        @include icon-align-y($name);
+    } @else if $align == "both" {
+        @include icon-align-both($name);
+    }
+
+    @include icon-size($name);
+
+    vertical-align: middle;
+
+    @include icon-background($name);
+}
+
+.icon,
+[class^="icon-"],
+[class*=" icon-"] {
+}
+
+.icon {
+{{#sprites}}
+    &-{{name}} {
+        @include icon("{{name}}");
+
+        &.align-x {
+            @include icon-align-x("{{name}}");
+        }
+
+        &.align-y {
+            @include icon-align-y("{{name}}");
+        }
+
+        &.align-both {
+            @include icon-align-both("{{name}}");
+        }
+    }
+{{/sprites}}
+}

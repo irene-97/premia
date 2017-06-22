@@ -1,0 +1,144 @@
+.button {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    padding: 0;
+    border: solid 0 transparent;
+    border-radius: 0;
+    outline: none;
+    overflow: hidden;
+    font-family: "LucidaGrande", sans-serif;
+    font-weight: normal;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background: none;
+    cursor: pointer;
+    user-select: none;
+    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+
+    &.disabled,
+    &:disabled {
+        cursor: default;
+        pointer-events: none;
+    }
+
+    &,
+    &.size_30 {
+        @include button_size(
+            $height: 30px,
+            $padding-x: null,
+            $border-width: 1px,
+            $border-radius: 10px,
+            $font-size: 16.67px,
+            $line-height: 22px
+        );
+    }
+
+    &.size_20 {
+        @include button_size(
+            $height: 20px,
+            $padding-x: null,
+            $border-width: 1px,
+            $border-radius: 10px,
+            $font-size: 12.79px,
+            $line-height: 18px
+        );
+    }
+
+    &.size_25 {
+        @include button_size(
+            $height: 25px,
+            $padding-x: null,
+            $border-width: 1px,
+            $border-radius: 10px,
+            $font-size: 12.79px,
+            $line-height: 16px
+        );
+    }
+
+    &.size_42 {
+        @include button_size(
+            $height: 42px,
+            $padding-x: null,
+            $border-width: 1px,
+            $border-radius: 10px,
+            $font-size: 18.4px,
+            $line-height: 24px
+        );
+    }
+
+    &.size_46 {
+        @include button_size(
+            $height: 46px,
+            $padding-x: null,
+            $border-width: 1px,
+            $border-radius: 10px,
+            $font-size: 18.4px,
+            $line-height: 24px
+        );
+    }
+
+    &,
+    &.color_transparent-black {
+        @include button_variant(
+            $border-color_normal: #000,
+            $color_normal: #000,
+            $background-color_normal: transparent,
+            $background-color_focus: rgba(#000, 0.025),
+            $background-color_hover: rgba(#000, 0.025),
+            $background-color_active: rgba(#000, 0.04)
+        );
+        box-shadow: inset 0 0 0 0.5px rgba(#000, 0.5);
+    }
+
+    &.color_transparent-white {
+        @include button_variant(
+            $border-color_normal: #fff,
+            $color_normal: #fff,
+            $background-color_normal: transparent,
+            $background-color_focus: rgba(#000, 0.025),
+            $background-color_hover: rgba(#000, 0.025),
+            $background-color_active: rgba(#000, 0.04)
+        );
+        box-shadow: inset 0 0 0 0.5px rgba(#fff, 0.5);
+    }
+
+    &.color_transparent-red {
+        @include button_variant(
+            $border-color_normal: #d7203e,
+            $color_normal: #000,
+            $background-color_normal: transparent,
+            $background-color_focus: rgba(#000, 0.025),
+            $background-color_hover: rgba(#000, 0.025),
+            $background-color_active: rgba(#000, 0.04)
+        );
+        box-shadow: inset 0 0 0 0.5px rgba(#d7203e, 0.5);
+    }
+
+    &.color_red {
+        @include button_variant(
+            $border-color_normal: #d7203e,
+            $border-color_focus: #cb1f3a,
+            $border-color_hover: #d2203c,
+            $border-color_active: #d2203c,
+            $color_normal: #fff,
+            $background-color_normal: #d7203e,
+            $background-color_focus: #cb1f3a,
+            $background-color_hover: #d2203c,
+            $background-color_active: #d2203c
+        );
+        box-shadow: none;
+    }
+
+    &.color_carrot {
+        @include button_variant(
+            $border-color_normal: #febf97,
+            $color_normal: #000,
+            $background-color_normal: #febf97
+        );
+        box-shadow: none;
+    }
+}

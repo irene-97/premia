@@ -1,0 +1,16 @@
+//noinspection CssOverwrittenProperties
+#page {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+
+    @each $breakpoint, $footer-min-height in $footer-min-heights {
+        @include screen-up($breakpoint) {
+            margin-bottom: -$footer-min-height;
+
+            &_wrapper {
+                padding-bottom: $footer-min-height + 46px;
+            }
+        }
+    }
+}

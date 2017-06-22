@@ -1,0 +1,30 @@
+.textbox {
+    display: block;
+    width: 100%;
+    min-height: 80px;
+    margin-top: 10px;
+    margin-bottom: 19px;
+    outline: none;
+    border: solid 2px #e6e6e6;
+    border-radius: 10px;
+    padding: 8px;
+    font-family: "LucidaGrande", sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+input.textbox {
+    min-height: 40px;
+}
+
+textarea.textbox {
+    border-color: #737373;
+    border-radius: 10px 0 0 10px;
+    resize: vertical;
+
+    //noinspection CssInvalidPseudoSelector
+    &::placeholder {
+        padding: 18px 0;
+        font-size: 16px;
+    }
+}

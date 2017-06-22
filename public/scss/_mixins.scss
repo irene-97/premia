@@ -1,0 +1,287 @@
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin placeholder {
+    //noinspection CssInvalidPseudoSelector
+    &::placeholder {
+        @content;
+    }
+}
+
+@mixin triangle($direction, $width, $height, $color) {
+    $top-width: 0;
+    $top-color: rgba(0, 0, 0, 0);
+    $right-width: 0;
+    $right-color: rgba(0, 0, 0, 0);
+    $bottom-width: 0;
+    $bottom-color: rgba(0, 0, 0, 0);
+    $left-width: 0;
+    $left-color: rgba(0, 0, 0, 0);
+
+    @if $direction == (to top) {
+        $left-width: $width / 2;
+        $right-width: $width / 2;
+        $bottom-width: $height;
+        $bottom-color: $color;
+    } @else if $direction == (to top right) or $direction == (to right top) {
+        $right-width: $width;
+        $right-color: $color;
+        $bottom-width: $height;
+    } @else if $direction == (to right) {
+        $top-width: $height / 2;
+        $bottom-width: $height / 2;
+        $left-width: $width;
+        $left-color: $color;
+    } @else if $direction == (to bottom right) or $direction == (to right bottom) {
+        $left-width: $width;
+        $bottom-width: $height;
+        $bottom-color: $color;
+    } @else if $direction == (to bottom) {
+        $top-width: $height;
+        $top-color: $color;
+        $left-width: $width / 2;
+        $right-width: $width / 2;
+    } @else if $direction == (to bottom left) or $direction == (to left bottom) {
+        $top-width: $height;
+        $left-width: $width;
+        $left-color: $color;
+    } @else if $direction == (to left) {
+        $top-width: $height / 2;
+        $bottom-width: $height / 2;
+        $right-width: $width;
+        $right-color: $color;
+    } @else if $direction == (to top left) or $direction == (to left top) {
+        $top-width: $height;
+        $top-color: $color;
+        $right-width: $width;
+    } @else {
+        @warn 'Incorrect triangle direction: #{inspect($direction)}';
+        $direction: false;
+    }
+
+    @if $direction {
+        @if is-superselector(":before", &) or
+        is-superselector("::before", &) or
+        is-superselector(":after", &) or
+        is-superselector("::after", &) {
+            content: "";
+        }
+
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: $top-width $right-width $bottom-width $left-width;
+        border-color: $top-color $right-color $bottom-color $left-color;
+    }
+}
+
+@mixin button_size(
+    $height,
+    $padding-x: null,
+    $padding-y: null,
+    $border-width: null,
+    $border-radius: null,
+    $font-size: null,
+    $line-height: null
+) {
+    $padding-x: default($padding-x, $height / 2);
+    $border-width: default($border-width, 1px);
+    $border-radius: default($border-radius, $height / 2);
+    $font-size: default($font-size, 14px);
+    $line-height: default($line-height, 1.5);
+
+    $inner-height: $height - 2 * $border-width;
+    $line-height: min(line-height-px($font-size, $line-height), $height);
+    $padding-y: default($padding-y, ($inner-height - $line-height) / 2);
+    $padding-top: if($padding-y - 1 > 0, $padding-y - 1, 0);
+    $padding-bottom: $padding-y * 2 - $padding-top;
+
+    height: $height;
+    padding: $padding-top $padding-x $padding-bottom;
+    border-width: $border-width;
+    border-radius: $border-radius;
+    font-size: $font-size;
+    line-height: $line-height;
+}
+
+@mixin button_border-color(
+    $border-color_normal,
+    $border-color_focus: null,
+    $border-color_hover: null,
+    $border-color_active: null,
+    $border-color_disabled: null
+) {
+    $border-color_focus: default($border-color_focus, darken(nth($border-color_normal, 1), 10%));
+    $border-color_hover: default($border-color_hover, darken(nth($border-color_normal, 1), 10%));
+    $border-color_active: default($border-color_active, darken(nth($border-color_normal, 1), 20%));
+    $border-color_disabled: default($border-color_disabled, $border-color_normal);
+
+    border-color: $border-color_normal;
+
+    &:focus {
+        border-color: $border-color_focus;
+    }
+
+    &:hover {
+        border-color: $border-color_hover;
+    }
+
+    &:active {
+        border-color: $border-color_active;
+    }
+
+    &.disabled,
+    &:disabled {
+        border-color: $border-color_disabled
+    }
+}
+
+@mixin button_color(
+    $color_normal,
+    $color_focus: null,
+    $color_hover: null,
+    $color_active: null,
+    $color_disabled: null
+) {
+    $color_focus: default($color_focus, $color_normal);
+    $color_hover: default($color_hover, $color_normal);
+    $color_active: default($color_active, $color_normal);
+    $color_disabled: default($color_disabled, $color_normal);
+
+    color: $color_normal;
+
+    &:focus {
+        color: $color_focus;
+    }
+
+    &:hover {
+        color: $color_hover;
+    }
+
+    &:active {
+        color: $color_active;
+    }
+
+    &.disabled,
+    &:disabled {
+        color: $color_disabled
+    }
+}
+
+@mixin button_background-color(
+    $background-color_normal,
+    $background-color_focus: null,
+    $background-color_hover: null,
+    $background-color_active: null,
+    $background-color_disabled: null
+) {
+    $background-color_focus: default($background-color_focus, darken(nth($background-color_normal, 1), 10%));
+    $background-color_hover: default($background-color_hover, darken(nth($background-color_normal, 1), 10%));
+    $background-color_active: default($background-color_active, darken(nth($background-color_normal, 1), 20%));
+    $background-color_disabled: default($background-color_disabled, $background-color_normal);
+
+    background-color: $background-color_normal;
+
+    &:focus {
+        background-color: $background-color_focus;
+    }
+
+    &:hover {
+        background-color: $background-color_hover;
+    }
+
+    &:active {
+        background-color: $background-color_active;
+    }
+
+    &.disabled,
+    &:disabled {
+        background-color: $background-color_disabled
+    }
+}
+
+@mixin button_variant(
+    $border-color_normal,
+    $color_normal,
+    $background-color_normal,
+    $border-color_focus: null,
+    $color_focus: null,
+    $background-color_focus: null,
+    $border-color_hover: null,
+    $color_hover: null,
+    $background-color_hover: null,
+    $border-color_active: null,
+    $color_active: null,
+    $background-color_active: null,
+    $border-color_disabled: null,
+    $color_disabled: null,
+    $background-color_disabled: null
+) {
+    @include button_border-color(
+            $border-color_normal,
+            $border-color_focus,
+            $border-color_hover,
+            $border-color_active,
+            $border-color_disabled
+    );
+
+    @include button_color(
+            $color_normal,
+            $color_focus,
+            $color_hover,
+            $color_active,
+            $color_disabled
+    );
+
+    @include button_background-color(
+            $background-color_normal,
+            $background-color_focus,
+            $background-color_hover,
+            $background-color_active,
+            $background-color_disabled
+    );
+}
+
+@mixin screen-up($name) {
+    $min: breakpoint-min($name);
+    @if $min {
+        @media (min-width: $min) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
+
+@mixin screen-down($name) {
+    $max: breakpoint-max($name);
+    @if $max {
+        @media (max-width: $max) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
+
+@mixin screen-only($name) {
+    @include screen-up($name) {
+        @include screen-down($name) {
+            @content;
+        }
+    }
+}
+
+@mixin screen-between($lower, $upper) {
+    @include screen-up($lower) {
+        @include screen-down($upper) {
+            @content;
+        }
+    }
+}

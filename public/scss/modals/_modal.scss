@@ -1,0 +1,21 @@
+.modal,
+[class^="modal-"],
+[class*=" modal-"] {
+    display: none;
+
+    .modal_outer {
+        display: table;
+        table-layout: fixed;
+    }
+
+    .modal_inner {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .modal_content {
+        @include clearfix;
+        position: relative;
+        margin: 0 auto;
+    }
+}

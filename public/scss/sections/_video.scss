@@ -1,0 +1,27 @@
+.section-video {
+    h2 {
+    }
+
+    .video {
+        display: block;
+        width: 716px;
+        height: 360px;
+        margin: 0 auto 17px;
+    }
+}
+
+@include screen-down(md) {
+    .section-video {
+        .video {
+            width: 100%;
+        }
+    }
+}
+
+@include screen-down(sm) {
+    .section-video {
+        .video {
+            width: 100%;
+        }
+    }
+}

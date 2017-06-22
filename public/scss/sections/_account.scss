@@ -1,0 +1,627 @@
+.section-account {
+    .breadcrumbs {
+        margin-bottom: 18px;
+    }
+
+    h2 {
+        float: left;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    .links {
+        font-size: 0;
+
+        .button {
+            @include button_size(
+                $height: 79px,
+                $padding-x: 8px,
+                $padding-y: 5px,
+                $border-width: 2px,
+                $border-radius: 10px,
+                $font-size: 16px,
+                $line-height: 22px
+            );
+
+            @include button_variant(
+                $border-color_normal: #737373,
+                $color_normal: #000,
+                $background-color_normal: transparent,
+                $background-color_focus: rgba(#000, 0.025),
+                $background-color_hover: rgba(#000, 0.025),
+                $background-color_active: rgba(#000, 0.04)
+            );
+
+            display: inline-table;
+            width: 328px;
+            margin-right: 43px;
+            box-shadow: none;
+            vertical-align: top;
+            white-space: normal;
+
+            span {
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &.active {
+                @include button_variant(
+                    $border-color_normal: #d7203e,
+                    $border-color_focus: #cb1f3a,
+                    $border-color_hover: #d2203c,
+                    $border-color_active: #d2203c,
+                    $color_normal: #fff,
+                    $background-color_normal: #d7203e,
+                    $background-color_focus: #cb1f3a,
+                    $background-color_hover: #d2203c,
+                    $background-color_active: #d2203c
+                );
+            }
+        }
+    }
+
+    .textbox {
+    }
+
+    .account-name {
+        float: right;
+        max-width: 375px;
+        margin-bottom: 20px;
+        font-size: 20px;
+        line-height: 1.321;
+        color: #000;
+
+        span {
+            color: #d7203e;
+        }
+    }
+
+    .table {
+        margin-top: 71px;
+
+        .heading {
+            @include clearfix;
+            font-size: 16px;
+            color: #e30613;
+
+            .company {
+                float: left;
+                width: 328px;
+                font-size: 16px;
+                line-height: 22px;
+                margin-right: 43px;
+                text-align: center;
+            }
+
+            .nomination {
+                float: left;
+                width: 460px;
+                font-size: 16px;
+                line-height: 22px;
+                margin-right: 43px;
+                padding-left: 118px;
+            }
+
+            .marks {
+                float: left;
+                width: 180px;
+                font-size: 16px;
+                line-height: 22px;
+                text-align: center;
+            }
+        }
+
+        .items {
+            margin-top: 32px;
+
+            .item {
+                @include clearfix;
+                margin-bottom: 26px;
+
+                .company {
+                    float: left;
+                    position: relative;
+                    width: 328px;
+                    min-height: 25px;
+                    font-size: 16px;
+                    line-height: 22px;
+                    margin-right: 43px;
+                    padding-top: 2px;
+                    padding-bottom: 1px;
+                    padding-left: 71px;
+
+                    .circle {
+                        position: absolute;
+                        display: inline-block;
+                        left: 33px;
+                        top: 0;
+                        width: 25px;
+                        height: 25px;
+                        line-height: 23px;
+                        border: solid 1px #000;
+                        border-radius: 50%;
+                        vertical-align: middle;
+                        text-align: center;
+                        background-color: #fff;
+                    }
+
+                    a {
+                        font-size: 16px;
+                        line-height: 22px;
+                        border-bottom: none;
+                        color: #000;
+
+                        &:hover {
+                            color: #d7203e;
+                        }
+                    }
+                }
+
+                .nomination {
+                    float: left;
+                    width: 460px;
+                    min-height: 25px;
+                    margin-right: 43px;
+                    font-size: 16px;
+                    line-height: 22px;
+                    padding-top: 2px;
+                    padding-bottom: 1px;
+                }
+
+                .marks {
+                    float: left;
+                    width: 180px;
+                    min-height: 25px;
+                    font-size: 16px;
+                    line-height: 22px;
+                    text-align: center;
+                    user-select: none;
+
+                    .number {
+                        display: inline-block;
+                        width: 25px;
+                        height: 25px;
+                        line-height: 23px;
+                        margin-right: 10px;
+                        border: solid 1px #000;
+                        border-radius: 50%;
+                        vertical-align: middle;
+                        text-align: center;
+                        background-color: #fff;
+
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                    }
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    .info-table {
+        .heading {
+            @include clearfix;
+            margin-bottom: 16px;
+
+            .company {
+                float: left;
+                width: 280px;
+                margin-right: 69px;
+                font-size: 16px;
+                line-height: 22px;
+                color: #e30613;
+            }
+
+            .nomination {
+                margin-left: 349px;
+                font-size: 16px;
+                line-height: 22px;
+                color: #e30613;
+            }
+        }
+
+        .values {
+            @include clearfix;
+            margin-bottom: 16px;
+
+            .company {
+                float: left;
+                width: 280px;
+                margin-right: 69px;
+                font-size: 16px;
+                line-height: 22px;
+            }
+
+            .nomination {
+                margin-left: 349px;
+                font-size: 16px;
+                line-height: 22px;
+            }
+        }
+    }
+
+    .label {
+        margin-top: 35px;
+        color: #e30613;
+    }
+
+    .voting {
+        @include clearfix;
+        margin-bottom: 22px;
+
+        label {
+            float: left;
+            display: block;
+            width: 580px;
+            margin-right: 20px;
+            padding: 1px 0 2px;
+        }
+
+        .marks {
+            margin-left: 600px;
+            user-select: none;
+        }
+    }
+
+    .buttons {
+        margin-top: 54px;
+        font-size: 0;
+        text-align: center;
+
+        div {
+            margin: 15px auto 0;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+
+        .button {
+            display: inline-block;
+            min-width: 187px;
+            padding-right: 9px;
+            padding-left: 9px;
+        }
+    }
+
+    .columns {
+        @include clearfix;
+        width: 1041px;
+        margin: 0 auto;
+
+        .col-1 {
+            float: left;
+            width: 505px;
+            margin-right: 31px;
+        }
+
+        .col-2 {
+            float: left;
+            width: 505px;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &.expert-account {
+        label {
+            font-size: 16px;
+            line-height: 22px;
+        }
+    }
+
+    &.buyer-account {
+        label {
+            display: block;
+            margin-top: 15px;
+            font-size: 16px;
+            line-height: 22px;
+            color: #e30613;
+
+            &.question {
+                position: relative;
+                padding: 1px 0 2px 42px;
+                font-size: 16px;
+                line-height: 22px;
+                color: #000;
+
+                .circle {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: inline-block;
+                    margin-right: 10px;
+                    border-color: #d7203e;
+                    color: #fff;
+                    background-color: #d7203e;
+                }
+            }
+        }
+
+        .filebox {
+            margin-top: 45px;
+        }
+
+        .field-group {
+            margin-top: 64px;
+
+            .title {
+                margin-bottom: 26px;
+                font-size: 16px;
+                line-height: 22px;
+                color: #e30613;
+            }
+
+            label {
+                font-size: 16px;
+                line-height: 22px;
+                color: #000;
+            }
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+@include screen-down(lg) {
+    .section-account {
+        .links {
+            .button {
+                width: 270px;
+                margin-right: 15px;
+            }
+
+            &.links_2 {
+            }
+
+            &.links_3 {
+            }
+        }
+
+        .table {
+            margin-top: 40px;
+
+            .heading {
+                .company {
+                    width: 270px;
+                    margin-right: 15px;
+                }
+
+                .nomination {
+                    width: 300px;
+                    margin-right: 15px;
+                }
+
+                .marks {
+                    width: 210px;
+                }
+            }
+
+            .items {
+                .item {
+                    .company {
+                        width: 270px;
+                        margin-right: 15px;
+                    }
+
+                    .nomination {
+                        width: 300px;
+                        margin-right: 15px;
+                    }
+
+                    .marks {
+                        width: 210px;
+                    }
+                }
+            }
+        }
+
+        .columns {
+            width: 100%;
+
+            .col-1 {
+                width: 405px;
+                margin-right: 30px;
+            }
+
+            .col-2 {
+                width: 405px;
+            }
+        }
+    }
+}
+
+@include screen-down(md) {
+    .section-account {
+        .account-name {
+            font-size: 18px;
+        }
+
+        .links {
+            .button {
+                width: 305px;
+                margin-right: 15px;
+                margin-bottom: 15px;
+            }
+
+            &.links_2 {
+            }
+
+            &.links_3 {
+                .button {
+                    &:last-child {
+                        margin-left: 25%;
+                    }
+                }
+            }
+        }
+
+        .table {
+            .heading {
+                .company {
+                    width: 240px;
+                }
+
+                .nomination {
+                    width: 240px;
+                    padding-left: 53px;
+                }
+
+                .marks {
+                    width: 130px;
+                }
+            }
+
+            .items {
+                .item {
+                    .company {
+                        width: 240px;
+
+                        a {
+                            font-size: 15px;
+                        }
+                    }
+
+                    .nomination {
+                        width: 240px;
+                        font-size: 15px;
+                    }
+
+                    .marks {
+                        width: 130px;
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+
+        .columns {
+            .col-1 {
+                float: none;
+                width: 100%;
+                margin-right: 0;
+            }
+
+            .col-2 {
+                float: none;
+                width: 100%;
+                margin-top: 40px;
+            }
+        }
+
+        .voting {
+            label {
+                width: 420px;
+            }
+
+            .marks {
+                margin-left: 420px;
+            }
+        }
+
+        &.buyer-account {
+            .field-group {
+                margin-top: 40px;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+}
+
+@include screen-down(sm) {
+    .section-account {
+        .tab-containers {
+            .tab-container {
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+        }
+
+        .account-name {
+            font-size: 17px;
+        }
+
+        .links {
+            .button {
+                width: 266px;
+                margin-right: 0;
+                margin-left: 10px;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+
+            &.links_2 {
+            }
+
+            &.links_3 {
+            }
+        }
+
+        .table {
+            .heading {
+                .company {
+                    width: 240px;
+                }
+
+                .nomination {
+                    width: 175px;
+                }
+
+                .marks {
+                    width: 95px;
+                }
+            }
+
+            .items {
+                .item {
+                    .company {
+                        width: 240px;
+                    }
+
+                    .nomination {
+                        width: 175px;
+                    }
+
+                    .marks {
+                        width: 95px;
+
+                        .circle {
+                            margin-right: 5px;
+
+                            &:last-child {
+                                margin-right: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .voting {
+            label {
+                width: 330px;
+            }
+
+            .marks {
+                margin-left: 330px;
+            }
+        }
+    }
+}
